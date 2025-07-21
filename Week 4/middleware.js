@@ -3,6 +3,9 @@ const app=express()
 let gc=0;
 let numberofrequests={}
 //something like this for keeping track of how many requests per persoon in a single second
+
+//rate limiter
+//only 5 requets per second
 setInterval(()=>{
     numberofrequests={}
 },1000)
@@ -18,6 +21,7 @@ app.use(function(req,res,next)){
         }
     }else{
         numberofrequests[req.headers["id"]]=1
+        next()
     }
     gc++;
     next()
@@ -33,8 +37,12 @@ app.use("/delete",(req,res)=>{
     //logic
 })
 //this will save ou server and help us keep track of the load on the server
+app.use(function(err,req,res,next)){
+    res.status(400).send({})
+}
 
 
-//rate limiter
-//only 5 requets per second
+//error middleware
+
+
 app.listen(3000)
