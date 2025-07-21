@@ -1,0 +1,18 @@
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        async function sendRequest(){
+            const a=document.getElementById("a").value
+            const b=document.getElementById("b").value
+            await axios.post("http://localhost:3000/sum",{
+                a:a,
+                b:b
+            })
+        }
+    </script>
+    <body>
+        <input id="a" type="text" placeholder="First Value"></input>
+        <input id="b" type="text" placeholder="Second value"></input>
+        <button onclick="sendRequest()">Find Sum</button>
+    </body>
+</head>
