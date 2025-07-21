@@ -16,6 +16,8 @@ app.use(function(req,res,next)){
         }else{
             next()
         }
+    }else{
+        numberofrequests[req.headers["id"]]=1
     }
     gc++;
     next()
