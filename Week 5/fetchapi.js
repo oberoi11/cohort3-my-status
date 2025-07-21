@@ -8,5 +8,10 @@ async function fn(){
     document.getElementById("root").innerHTML=answer.body
 }
 fn()
+
+//fetch is native library present in browser and it is a client side libarary and not server libarary as it fetches the things from the browser
+//axios is external library but it is also same as fetch
+
+
 //now if i want to render this data onto the html page i can do this
 <div id="root"></div>
